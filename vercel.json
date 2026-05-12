@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/airbnb-premium.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/airbnb-premium.html"
+    }
+  ]
+}
