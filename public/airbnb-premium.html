@@ -1187,7 +1187,6 @@
       </div>
       <div class="sig-controls">
         <button class="sig-btn" onclick="clearSignature()">מחק חתימה</button>
-        <button class="sig-btn primary" onclick="downloadPDF()">הורד PDF חתום</button>
       </div>
       <div class="sig-status" id="sigStatus">ממתין לחתימה...</div>
     </div>
@@ -1222,7 +1221,6 @@
 
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script>
   // gentle scroll reveal
   const els = document.querySelectorAll('.reveal');
@@ -1284,23 +1282,6 @@
     document.getElementById('sigStatus').classList.remove('signed');
   }
 
-  function downloadPDF() {
-    if (!isSigned) {
-      alert('אנא חתום תחילה לפני הורדת ה-PDF');
-      return;
-    }
-
-    const element = document.querySelector('.wrap');
-    const opt = {
-      margin: 10,
-      filename: 'Biz-My-Way-Agreement-Signed.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
-    };
-
-    html2pdf().set(opt).from(element).save();
-  }
 </script>
 </body>
 </html>
