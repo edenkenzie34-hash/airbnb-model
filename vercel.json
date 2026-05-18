@@ -3,11 +3,11 @@
   "routes": [
     {
       "src": "/",
-      "dest": "/airbnb-premium.html"
+      "dest": "/pricing.html"
     },
     {
       "src": "/(.*)",
-      "dest": "/airbnb-premium.html"
+      "dest": "/pricing.html"
     }
   ]
 }
