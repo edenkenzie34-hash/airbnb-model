@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הצעת מחיר - Eden Kenzie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            width: 100%;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated gradient background */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.03) 0%, transparent 70%);
+            animation: float 15s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-eden {
+            color: #1a1a1a;
+        }
+
+        .logo-kenzie {
+            color: #000;
+            font-weight: 900;
+            background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            color: #666;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Smiley */
+        .smiley-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            height: 100px;
+        }
+
+        .smiley {
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+
+        .smiley-face {
+            animation: bob 3s ease-in-out infinite;
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            direction: rtl;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #a855f7;
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* Calculation */
+        .calculation-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 2px solid #e5e7eb;
+        }
+
+        .calc-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .calc-row:last-child {
+            margin-bottom: 0;
+            padding-top: 1rem;
+            border-top: 2px solid #e5e7eb;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #a855f7;
+        }
+
+        .calc-label {
+            color: #666;
+        }
+
+        .calc-value {
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* Info text */
+        .info-text {
+            text-align: center;
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            line-height: 1.5;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(30px, -30px); }
+            66% { transform: translate(-20px, 20px); }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .smiley-container {
+                height: 80px;
+            }
+
+            .smiley {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <header>
+                <div class="logo">
+                    <span class="logo-eden">EDEN</span> <span class="logo-kenzie">KENZIE</span>
+                </div>
+                <p>עיצוב דפי נחיתה מקצועי</p>
+            </header>
+
+            <div class="smiley-container">
+                <svg class="smiley smiley-face" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Face circle -->
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#a855f7" stroke-width="3"/>
+
+                    <!-- Left eye -->
+                    <circle cx="35" cy="40" r="5" fill="#a855f7"/>
+                    <!-- Right eye -->
+                    <circle cx="65" cy="40" r="5" fill="#a855f7"/>
+
+                    <!-- Happy mouth -->
+                    <path d="M 35 60 Q 50 70 65 60" stroke="#a855f7" stroke-width="3" fill="none" stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <form id="pricingForm">
+                <div class="form-group">
+                    <label for="service">תיאור השירות</label>
+                    <textarea id="service" placeholder="למשל: עיצוב landing page לתחרות מחשוב..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">סכום בסיסי (₪)</label>
+                    <input type="number" id="amount" placeholder="הכנס סכום" min="0" step="100" required>
+                </div>
+
+                <div class="calculation-box">
+                    <div class="calc-row">
+                        <span class="calc-label">סכום בסיסי</span>
+                        <span class="calc-value" id="baseAmount">₪0</span>
+                    </div>
+                    <div class="calc-row">
+                        <span class="calc-label">מעמ (17%)</span>
+                        <span class="calc-value" id="vatAmount">₪0</span>
+                    </div>
+                    <div class="calc-row">
+                        <span class="calc-label">סה"כ לתשלום</span>
+                        <span class="calc-value" id="totalAmount">₪0</span>
+                    </div>
+                </div>
+
+                <button type="submit">שלח הצעה</button>
+                <p class="info-text">הצעה זו תשמר כטיוטה עד לשליחה</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('pricingForm');
+        const amountInput = document.getElementById('amount');
+        const baseAmountDisplay = document.getElementById('baseAmount');
+        const vatAmountDisplay = document.getElementById('vatAmount');
+        const totalAmountDisplay = document.getElementById('totalAmount');
+
+        const VAT_RATE = 0.17;
+
+        function updateCalculation() {
+            const baseAmount = parseFloat(amountInput.value) || 0;
+            const vat = baseAmount * VAT_RATE;
+            const total = baseAmount + vat;
+
+            baseAmountDisplay.textContent = `₪${baseAmount.toLocaleString('he-IL')}`;
+            vatAmountDisplay.textContent = `₪${vat.toLocaleString('he-IL', { maximumFractionDigits: 2 })}`;
+            totalAmountDisplay.textContent = `₪${total.toLocaleString('he-IL', { maximumFractionDigits: 2 })}`;
+        }
+
+        amountInput.addEventListener('input', updateCalculation);
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const service = document.getElementById('service').value;
+            const amount = parseFloat(amountInput.value);
+            const vat = amount * VAT_RATE;
+            const total = amount + vat;
+
+            const message = `הצעת מחיר:\n\nשירות: ${service}\nסכום: ₪${amount}\nמעמ: ₪${vat.toFixed(2)}\nסה"כ: ₪${total.toFixed(2)}`;
+
+            alert(message);
+            // כאן אתה יכול להוסיף שליחה לשרת או ל-email
+        });
+
+        // Initialize
+        updateCalculation();
+    </script>
+</body>
+</html>
