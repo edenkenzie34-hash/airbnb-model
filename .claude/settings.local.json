@@ -7,7 +7,8 @@
       "mcp__f7609624-737b-4bf0-96df-edfc1019c7d9__list_teams",
       "Bash(vercel --version)",
       "Bash(vercel deploy *)",
-      "Bash(vercel link *)"
+      "Bash(vercel link *)",
+      "Bash(ls -la /root/.vercel/ 2>/dev/null || echo \"Vercel CLI not configured\" && echo \"---\" && git log --oneline -10)"
     ]
   }
 }
