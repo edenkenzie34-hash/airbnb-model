@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "mcp__f7609624-737b-4bf0-96df-edfc1019c7d9__list_teams",
+      "Bash(vercel --version)",
+      "Bash(vercel deploy *)",
+      "Bash(vercel link *)"
     ]
   }
 }
