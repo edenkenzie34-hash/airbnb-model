@@ -8,7 +8,16 @@
       "Bash(vercel --version)",
       "Bash(vercel deploy *)",
       "Bash(vercel link *)",
-      "Bash(ls -la /root/.vercel/ 2>/dev/null || echo \"Vercel CLI not configured\" && echo \"---\" && git log --oneline -10)"
+      "Bash(ls -la /root/.vercel/ 2>/dev/null || echo \"Vercel CLI not configured\" && echo \"---\" && git log --oneline -10)",
+      "Read(//c/c/Users/hanny/.claude/worktrees/compassionate-grothendieck-34eddb/**)",
+      "Read(//c/c/Users/hanny/.claude/worktrees/compassionate-grothendieck-34eddb/limor_site/**)",
+      "Bash(git checkout *)",
+      "Bash(git merge *)",
+      "Bash(curl -I https://rainmaker-limor.vercel.app)",
+      "mcp__f7609624-737b-4bf0-96df-edfc1019c7d9__web_fetch_vercel_url",
+      "Bash(curl -s https://rainmaker-limor.vercel.app)",
+      "Bash(cat)",
+      "Bash(python /tmp/limor_replace.py)"
     ]
   }
 }
