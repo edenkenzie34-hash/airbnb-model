@@ -1,6 +1,7 @@
 {
   "version": 2,
   "public": ".",
+  "buildCommand": "ls -la",
   "routes": [
     {
       "src": "/",
