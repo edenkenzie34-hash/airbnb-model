@@ -3,6 +3,14 @@
   "public": "public",
   "routes": [
     {
+      "src": "/limor",
+      "dest": "/limor.html"
+    },
+    {
+      "src": "/limor.html",
+      "dest": "/limor.html"
+    },
+    {
       "src": "/",
       "dest": "/airbnb-premium.html"
     },
